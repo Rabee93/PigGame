@@ -9,3 +9,11 @@ const diceEl = document.querySelector('.dice');
 score0El.textContent = 0;
 score1El.textContent = 0;
 diceEl.classList.add("hidden")
+
+// rolling dice functionality
+
+rollDiceBtn.addEventListener("click", function(){
+    const diceNum = Math.trunc(Math.random()*6) + 1;
+    diceEl.classList.remove("hidden")
+    diceEl.src = `dice-${diceNum}.png`
+})
