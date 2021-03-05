@@ -29,11 +29,13 @@ rollDiceBtn.addEventListener("click", function(){
 
     if(diceNum != 1){
         score0 += diceNum
-        currentScore0.textContent = score0
+        document.getElementById(`current--${activePlayer}`).textContent = score0
 
 
     }else {
         score0 = 0
+        document.getElementById(`current--${activePlayer}`).textContent = score0
+        activePlayer = activePlayer === 0 ? 1:0
 
 
 
