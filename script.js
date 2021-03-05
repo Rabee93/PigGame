@@ -1,6 +1,8 @@
 'use strict';
 
 // selecting elements
+const player0 = document.querySelector('.player--0')
+const player1 = document.querySelector('.player--1')
 const score0El = document.querySelector('#score--0');
 const score1El = document.getElementById('score--1');
 const diceEl = document.querySelector('.dice');
@@ -32,12 +34,21 @@ rollDiceBtn.addEventListener("click", function(){
         document.getElementById(`current--${activePlayer}`).textContent = score0
 
 
-    }else {
-        score0 = 0
-        document.getElementById(`current--${activePlayer}`).textContent = score0
-        activePlayer = activePlayer === 0 ? 1:0
+      }else {
+              score0 = 0
+              document.getElementById(`current--${activePlayer}`).textContent = score0
+              activePlayer = activePlayer === 0 ? 1:0
+
+              if(activePlayer === 1){
+                  player0.classList.remove('player--active')
+                  player1.classList.add('player--active')
+
+              } else {
+                  player0.classList.add('player--active')
+                  player1.classList.remove('player--active')
+              }
 
 
 
-    }
-})
+          }
+      })
