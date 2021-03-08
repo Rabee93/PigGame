@@ -12,11 +12,11 @@ const holdBtn = document.querySelector('.btn--hold');
 const currentScore0 = document.getElementById('current--0');
 const currentScore1 = document.getElementById('current--1');
 
-let score0 = 0
-let score1 = 0
-
+let activePlayer = 0
+let currentScore = 0
 
 // starting conditions
+let score = [0,0]
 score0El.textContent = 0;
 score1El.textContent = 0;
 diceEl.classList.add("hidden")
@@ -52,3 +52,24 @@ rollDiceBtn.addEventListener("click", function(){
 
           }
       })
+
+      holdBtn.addEventListener("click", function(){
+    // 1. add current score to score
+    score[activePlayer] += currentScore
+    document.getElementById(`score--${activePlayer}`).textContent= score[activePlayer]
+    currentScore = 0
+    document.getElementById(`current--${activePlayer}`).textContent = 0
+    activePlayer = activePlayer === 0 ? 1:0
+    if(activePlayer === 1){
+        player0.classList.remove('player--active')
+        player1.classList.add('player--active')
+
+    } else {
+        player0.classList.add('player--active')
+        player1.classList.remove('player--active')
+    }
+
+    // 2. if player reaches 100 he wins
+    // 3. if player is less than 100 then switch players
+
+})
