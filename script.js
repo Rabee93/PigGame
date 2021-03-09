@@ -86,3 +86,20 @@ rollDiceBtn.addEventListener("click", function(){
 
        // 3. if player is less than 100 then switch players
        }
+
+
+  newGame.addEventListener("click", function(){
+    activePlayer = 0
+    currentScore = 0
+    playing = true
+
+    // starting conditions
+    score = [0,0]
+    score0El.textContent = 0;
+    score1El.textContent = 0;
+    player0.classList.add('player--active')
+    player1.classList.remove('player--active')
+    diceEl.classList.remove("hidden")
+    document.querySelector(`.player--${activePlayer}`).classList.remove('player--winner')
+
+})
